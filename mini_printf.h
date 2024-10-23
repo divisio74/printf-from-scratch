@@ -4,6 +4,9 @@
 ** File description:
 ** mini_printf
 */
+#include <stdarg.h>
+#include <stdio.h>
+#include <unistd.h>
 
 #ifndef MINI_PRINTF_H
     #define MINI_PRINTF_H

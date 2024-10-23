@@ -15,14 +15,16 @@ static int boucle_countf(va_list list_args, int i, const char *format)
     int c = 0;
 
     if (format[i + 1] == 's') {
-        c += my_countstr(va_arg(list_args, const char *)) - 1;
+        c += my_countstr(va_arg(list_args, const char *));
     }
     if (format[i + 1] == 'd' || format[i + 1] == 'i') {
-        c += my_count_nbr(va_arg(list_args, int)) - 1;
+        c += my_count_nbr(va_arg(list_args, int));
     }
     if (format[i + 1] == 'c') {
+        c++;
     }
     if (format[i + 1] == '%') {
+        c++;
     }
     count_double1(list_args, i, format, c);
     return c;
@@ -38,6 +40,5 @@ int mini_countf(const char *format, va_list list_args, int i, int c)
             c++;
     }
     va_end(list_args);
-    printf("c : %i", c);
     return c;
 }

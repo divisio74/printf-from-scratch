@@ -25,9 +25,9 @@ int boucle_error_flags(va_list list_args, int i, const char *format)
 {
     int error = 0;
     int error_detected = 0;
-    char *list_error = "scdief% ";
+    char *list_error = "scdief ";
 
-    for (int s = 0; format[i + 1] == list_error[s]; s++)
+    for (int s = 0; format[i + 1] == list_error[s] || format[i + 1] == "%"; s++)
         error++;
     if (error == 0)
         error_detected++;
@@ -72,13 +72,17 @@ int mini_printf(const char *format, ...)
 
     va_start(list_args, format);
     error += boucle_error(list_args, i, format, error);
+    va_end(list_args);
     i = 0;
+    va_start(list_args, format);
     c += mini_countf(format, list_args, i, c);
+    va_end(list_args);
     i = 0;
+    va_start(list_args, format);
     if (error == 0)
         boucle_printf(list_args, i, format, c);
-        c = c - (2 * c);
-    if (error == 1)
+        c = 0 - c;
+    if (error > 0)
         write(2, "84\n", 3);
     va_end(list_args);
     printf("c : %i", c);

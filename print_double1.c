@@ -18,10 +18,10 @@ int my_put_double(double num)
     int decint_part = (int)dec_part;
 
     dec_part = dec_part * 1000000;
-    c += put_nbr(int_part);
+    c += my_put_nbr(int_part);
     if (dec_part < 0) {
         putchar('.');
-        c += put_nbr(decint_part);
+        c += my_put_nbr(decint_part);
     }
     return c;
 }

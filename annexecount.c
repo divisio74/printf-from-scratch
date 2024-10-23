@@ -4,6 +4,7 @@
 ** File description:
 ** annexecount
 */
+#include "mini_printf.h"
 
 int my_count_nbr(int nb)
 {
