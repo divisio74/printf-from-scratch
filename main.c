@@ -6,8 +6,7 @@
 */
 
 #include <stdio.h>
-
-int mini_printf(const char *format, ...);
+#include "mini_printf.h"
 
 int main(void)
 {

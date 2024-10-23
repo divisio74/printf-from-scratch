@@ -24,18 +24,12 @@ static int boucle_countf(va_list list_args, int i, const char *format)
     }
     if (format[i + 1] == '%') {
     }
+    count_double1(list_args, i, format, c);
     return c;
 }
 
-int mini_countf(const char *format, ...)
+int mini_countf(const char *format, va_list list_args, int i, int c)
 {
-    va_list list_args;
-    int i = 0;
-    int ie = 0;
-    int c = 0;
-    int error = 0;
-
-    va_start(list_args, format);
     for (i; i < my_strlen(format); i++) {
         if (format[i] == '%') {
             c += boucle_countf(list_args, i, format);
