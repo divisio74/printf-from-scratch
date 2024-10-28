@@ -26,17 +26,17 @@ int my_count_doublep(double num, int arg1)
 int count_double1(va_list list_args, int i, const char *format)
 {
     int c = 0;
-    char c;
+    char cchar;
     int arg1;
 
     if (format[i + 3] == 'f' && format[i + 1] == '.') {
-        c = format[i + 2];
-        arg1 = c - '0';
-        c += my_count_doublep(va_arg(list_args, double), arg1);
+        cchar = format[i + 2];
+        arg1 = cchar - '0';
+        c = my_count_doublep(va_arg(list_args, double), arg1);
         i++;
     }
     if (format[i + 1] == 'f' || format[i + 2] == 'f') {
-        c += my_count_doublep(va_arg(list_args, double), 6);
+        c = my_count_doublep(va_arg(list_args, double), 6);
     }
     return c;
 }
