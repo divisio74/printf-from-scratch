@@ -14,5 +14,5 @@ int main(void)
     int i = 7;
     double dint = 1235.5678;
 
-    mini_printf("The word %%%s%% has %i characters %.4f.\n", str , i, dint);
+    mini_printf("The word %%%s%% has %i characters %.4f.\n", str, i, dint);
 }

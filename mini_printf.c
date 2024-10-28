@@ -34,7 +34,7 @@ int boucle_error_flags(va_list list_args, int i, const char *format)
     return error_detected;
 }
 
-static int boucle_printf_flags(va_list list_args, int i, const char *format)
+int boucle_printf_flags(va_list list_args, int i, const char *format)
 {
     if (format[i + 1] == 's') {
         my_putstr(va_arg(list_args, const char *));
@@ -66,8 +66,8 @@ int mini_printf(const char *format, ...)
 {
     va_list list_args;
     int i = 0;
-    int c = 0;
     int error = 0;
+    int c;
 
     va_start(list_args, format);
     // error += boucle_error(list_args, i, format, error);
@@ -82,7 +82,6 @@ int mini_printf(const char *format, ...)
         write(2, "84\n", 3);
         c = 0 - c;
     va_end(list_args);
-    double dint = 12345524.245;
     printf(" c : %i", c);
     return c;
 }

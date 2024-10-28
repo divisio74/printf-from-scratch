@@ -23,5 +23,14 @@ int my_count_nbr(int nb);
 int my_countstr(char const *str);
 int my_count_double(double num);
 int count_double1(va_list list_args, int i, const char *format);
+int mini_countf(const char *format, va_list list_args, int i, int c);
+int boucle_countf(va_list list_args, int i, const char *format);
+int boucle_error(va_list list_args, int i, const char *format, int error);
+int boucle_error_flags(va_list list_args, int i, const char *format);
+int boucle_printf_flags(va_list list_args, int i, const char *format);
+int my_count_doublep(double num, int arg1);
+int print_double1(va_list list_args, int i, const char *format);
+int my_compute_power_rec(int nb, int p);
+int my_compute_power_rec_final(int nb, int p);
 
 #endif

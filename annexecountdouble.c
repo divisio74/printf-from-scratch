@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-int my_count_doublep(double num , int arg1)
+int my_count_doublep(double num, int arg1)
 {
     int c = 0;
     int int_part = (int)num;
@@ -22,14 +22,16 @@ int my_count_doublep(double num , int arg1)
     c += arg1;
     return c;
 }
+
 int count_double1(va_list list_args, int i, const char *format)
 {
     int c = 0;
+    char c;
+    int arg1;
 
     if (format[i + 3] == 'f' && format[i + 1] == '.') {
-        char c = format[i + 2];
-        int arg1 = c - '0';
-
+        c = format[i + 2];
+        arg1 = c - '0';
         c += my_count_doublep(va_arg(list_args, double), arg1);
         i++;
     }

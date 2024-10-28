@@ -32,14 +32,14 @@ int my_compute_power_rec(int nb, int p)
         my_compute_power_rec_final(nb, p);
 }
 
-int my_put_doublep(double num , int argp)
+int my_put_doublep(double num, int argp)
 {
     int int_part = (int)num;
     double dec_part = num - int_part;
+    int decint_part;
 
-    dec_part = dec_part * my_compute_power_rec(10 , argp);
-    int decint_part = (int)dec_part;
-
+    dec_part = dec_part * my_compute_power_rec(10, argp);
+    decint_part = (int)dec_part;
     my_put_nbr(int_part);
     my_putchar('.');
     my_put_nbr(decint_part);
@@ -47,9 +47,12 @@ int my_put_doublep(double num , int argp)
 
 int print_double1(va_list list_args, int i, const char *format)
 {
+    char c;
+    int argp;
+
     if (format[i + 3] == 'f' && format[i + 1] == '.') {
-        char c = format[i + 2];
-        int argp = c - '0';
+        c = format[i + 2];
+        argp = c - '0';
         my_put_doublep(va_arg(list_args, double), argp);
     }
     if (format[i + 1] == 'f') {

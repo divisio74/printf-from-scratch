@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-static int boucle_countf(va_list list_args, int i, const char *format)
+int boucle_countf(va_list list_args, int i, const char *format)
 {
     int c = 0;
 
