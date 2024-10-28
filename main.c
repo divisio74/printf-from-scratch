@@ -12,6 +12,7 @@ int main(void)
 {
     char *str = "epitech";
     int i = 7;
+    double dint = 1235.5678;
 
-    mini_printf("The word %%%s%% has %i characters .\n", str , i);
+    mini_printf("The word %%%s%% has %i characters %.4f.\n", str , i, dint);
 }

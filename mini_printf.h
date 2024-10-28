@@ -4,6 +4,9 @@
 ** File description:
 ** mini_printf
 */
+
+//suce mon chibre
+
 #include <stdarg.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -19,6 +22,6 @@ int mini_printf(const char *format, ...);
 int my_count_nbr(int nb);
 int my_countstr(char const *str);
 int my_count_double(double num);
-int count_double1(va_list list_args, int i, const char *format, int c);
+int count_double1(va_list list_args, int i, const char *format);
 
 #endif

@@ -16,7 +16,7 @@ int my_count_nbr(int nb)
         count++;
     }
     if (nbr >= 10) {
-        count += my_put_nbr(nb / 10);
+        count += my_count_nbr(nb / 10);
     }
     return count + 1;
 }
