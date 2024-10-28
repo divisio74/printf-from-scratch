@@ -20,7 +20,7 @@ int my_count_doublep(double num, int arg1)
     c += my_count_nbr(int_part);
     c++;
     c += arg1;
-    return c;
+    return c - 2;
 }
 
 int count_double1(va_list list_args, int i, const char *format)
@@ -33,7 +33,6 @@ int count_double1(va_list list_args, int i, const char *format)
         cchar = format[i + 2];
         arg1 = cchar - '0';
         c = my_count_doublep(va_arg(list_args, double), arg1);
-        i++;
     }
     if (format[i + 1] == 'f' || format[i + 2] == 'f') {
         c = my_count_doublep(va_arg(list_args, double), 6);

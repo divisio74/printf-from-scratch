@@ -49,14 +49,16 @@ int print_double1(va_list list_args, int i, const char *format)
 {
     char c;
     int argp;
+    int countarg = 0;
 
     if (format[i + 3] == 'f' && format[i + 1] == '.') {
         c = format[i + 2];
         argp = c - '0';
         my_put_doublep(va_arg(list_args, double), argp);
+        countarg += 2;
     }
     if (format[i + 1] == 'f') {
         my_put_doublep(va_arg(list_args, double), 6);
     }
-    return i;
+    return countarg;
 }
