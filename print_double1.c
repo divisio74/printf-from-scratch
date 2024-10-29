@@ -10,26 +10,26 @@
 #include <stdio.h>
 #include <unistd.h>
 
-int my_compute_power_rec_final(int nb, int p)
+int mcpr_final(int nb, int p)
 {
     int i;
     int final = nb;
 
     for (i = 0; i <= (p - 2); i++) {
         final = final * nb;
-        my_compute_power_rec(final, p - 1);
+        mcpr(final, p - 1);
     }
     return final;
 }
 
-int my_compute_power_rec(int nb, int p)
+int mcpr(int nb, int p)
 {
     if (p < 0)
         return 0;
     else if (p == 0)
         return 1;
     else
-        my_compute_power_rec_final(nb, p);
+        mcpr_final(nb, p);
 }
 
 int my_put_doublep(double num, int argp)
@@ -38,7 +38,7 @@ int my_put_doublep(double num, int argp)
     double dec_part = num - int_part;
     int decint_part;
 
-    dec_part = dec_part * my_compute_power_rec(10, argp);
+    dec_part = dec_part * mcpr(10, argp);
     decint_part = (int)dec_part;
     my_put_nbr(int_part);
     my_putchar('.');
