@@ -51,7 +51,7 @@ int boucle_printf_flags(va_list list_args, int i, const char *format)
         my_putchar(format[i]);
     }
     countarg = print_double1(list_args, i, format);
-    countarg = print_doublep_s1(list_args, i, format);
+    countarg += print_doublep_s1(list_args, i, format);
     return countarg;
 }
 
