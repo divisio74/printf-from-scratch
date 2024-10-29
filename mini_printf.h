@@ -37,5 +37,7 @@ int totalf(int num, int int_part, int decint, int argp);
 int dfirst_intf(int nbr);
 int first_intf(int nbr);
 int count_int(int nbr);
+int my_u(int nb);
+int my_put_u(va_list list_args, int i, const char *format);
 
 #endif
