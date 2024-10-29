@@ -50,6 +50,7 @@ int boucle_printf_flags(va_list list_args, int i, const char *format)
     if (format[i + 1] == '%') {
         my_putchar(format[i]);
     }
+    my_put_u(list_args, i, format);
     countarg = print_double1(list_args, i, format);
     countarg += print_doublep_s1(list_args, i, format);
     return countarg;
