@@ -35,7 +35,7 @@ int count_double1(va_list list_args, int i, const char *format)
         c = my_count_doublep(va_arg(list_args, double), arg1);
     }
     if (format[i + 1] == 'f' || format[i + 2] == 'f') {
-        c = my_count_doublep(va_arg(list_args, double), 6);
+        c = my_count_doublep(va_arg(list_args, double), 6) + 2;
     }
     return c;
 }

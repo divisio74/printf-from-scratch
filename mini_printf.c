@@ -73,7 +73,7 @@ int mini_printf(const char *format, ...)
     va_list list_args;
     int i = 0;
     int error = 0;
-    int c;
+    int c = 0;
 
     va_start(list_args, format);
     // error += boucle_error(list_args, i, format, error);

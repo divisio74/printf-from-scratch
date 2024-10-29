@@ -47,8 +47,8 @@ int my_put_doublep(double num, int argp)
 
 int print_double1(va_list list_args, int i, const char *format)
 {
-    char c;
-    int argp;
+    char c = 0;
+    int argp = 0;
     int countarg = 0;
 
     if (format[i + 3] == 'f' && format[i + 1] == '.') {

@@ -48,11 +48,11 @@ int count_int(int nbr)
 
 int my_put_doublep_s(double num, int argp)
 {
-    int intp;
-    double dec_part;
-    int decint;
-    int f_int;
-    int total;
+    int intp = 0;
+    double dec_part = 0;
+    int decint = 0;
+    int f_int = 0;
+    int total = 0;
 
     if ((int)num > 0) {
         intp = (int)num;
