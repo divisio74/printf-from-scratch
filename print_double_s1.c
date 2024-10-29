@@ -77,7 +77,7 @@ int print_doublep_s1(va_list list_args, int i, const char *format)
         my_put_doublep_s(va_arg(list_args, double), argp);
         countarg += 2;
     }
-    if (format[i + 1] == 'f') {
+    if (format[i + 1] == 'e') {
         my_put_doublep_s(va_arg(list_args, double), 6);
     }
     return countarg;
