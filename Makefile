@@ -11,7 +11,12 @@ SRC		=		print_double1.c \
 				annexecount.c \
 				annexecountdouble.c \
 				mini_printf.c \
-				my_compute_power_rec.c
+				print_double_s1.c \
+				my_u.c\
+				my_flag_o.c\
+				annexecountscience.c\
+				annexe_double_s1.c\
+
 
 
 OBJ 	=		$(SRC:.c=.o)
