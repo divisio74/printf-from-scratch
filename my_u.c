@@ -28,7 +28,6 @@ int my_u(int nb)
 {
     unsigned int nbr_max = 4294967295;
     unsigned nbr;
-    printf("%u\n", -10);
 
     if (nb < 0) {
         nbr = nbr_max + nb + 1;
