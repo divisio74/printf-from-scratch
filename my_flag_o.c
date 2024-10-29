@@ -6,7 +6,7 @@
 */
 #include <stdio.h>
 #include <stdlib.h>
-#include "mini_printf.h"
+#include "my_printf.h"
 
 int my_tab_size(unsigned int nb)
 {

@@ -5,7 +5,7 @@
 ** mini_printf
 */
 
-#include "mini_printf.h"
+#include "my_printf.h"
 #include <stdarg.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -69,7 +69,7 @@ int boucle_printf(va_list list_args, int i, const char *format)
     }
 }
 
-int mini_printf(const char *format, ...)
+int my_printf(const char *format, ...)
 {
     va_list list_args;
     int i = 0;

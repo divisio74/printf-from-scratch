@@ -9,14 +9,14 @@
 #include <stdio.h>
 #include <unistd.h>
 
-#ifndef MINI_PRINTF_H
-    #define MINI_PRINTF_H
+#ifndef MY_PRINTF_H
+    #define MY_PRINTF_H
 
 int my_putchar(char c);
 int my_put_nbr(int nb);
 int my_strlen(const char *str);
 int my_putstr(const char *str);
-int mini_printf(const char *format, ...);
+int my_printf(const char *format, ...);
 int my_count_nbr(int nb);
 int my_countstr(char const *str);
 int my_count_double(double num);

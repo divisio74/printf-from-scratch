@@ -10,7 +10,7 @@ SRC		=		print_double1.c \
 				mini_countf.c \
 				annexecount.c \
 				annexecountdouble.c \
-				mini_printf.c \
+				my_printf.c \
 				print_double_s1.c \
 				my_u.c\
 				my_flag_o.c\
@@ -23,7 +23,7 @@ OBJ 	=		$(SRC:.c=.o)
 
 NAME    = 		libmy.a
 
-NAME2   =       mini_printf.h
+NAME2   =       my_printf.h
 
 all: 	$(NAME)
 
