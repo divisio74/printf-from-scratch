@@ -77,7 +77,6 @@ int mini_printf(const char *format, ...)
     int c = 0;
 
     va_start(list_args, format);
-    // error += boucle_error(list_args, i, format, error);
     va_end(list_args);
     va_start(list_args, format);
     c += mini_countf(format, list_args, i, c);
@@ -89,6 +88,5 @@ int mini_printf(const char *format, ...)
         write(2, "84\n", 3);
         c = 0 - c;
     va_end(list_args);
-    printf(" c : %i", c);
     return c;
 }
