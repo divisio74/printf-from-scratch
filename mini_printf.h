@@ -5,8 +5,6 @@
 ** mini_printf
 */
 
-//suce mon chibre
-
 #include <stdarg.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -30,7 +28,14 @@ int boucle_error_flags(va_list list_args, int i, const char *format);
 int boucle_printf_flags(va_list list_args, int i, const char *format);
 int my_count_doublep(double num, int arg1);
 int print_double1(va_list list_args, int i, const char *format);
-int my_compute_power_rec(int nb, int p);
-int my_compute_power_rec_final(int nb, int p);
+int mcpr(int nb, int p);
+int mcpr_final(int nb, int p);
+int my_put_doublep_s(double num, int argp);
+int print_doublep_s1(va_list list_args, int i, const char *format);
+int last_put(int first_int, int num, int total, int int_part);
+int totalf(int num, int int_part, int decint, int argp);
+int dfirst_intf(int nbr);
+int first_intf(int nbr);
+int count_int(int nbr);
 
 #endif

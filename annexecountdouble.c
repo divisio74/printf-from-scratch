@@ -16,7 +16,7 @@ int my_count_doublep(double num, int arg1)
     double dec_part = num - int_part;
     int decint_part = (int)dec_part;
 
-    dec_part = dec_part * my_compute_power_rec(10, arg1);
+    dec_part = dec_part * mcpr(10, arg1);
     c += my_count_nbr(int_part);
     c++;
     c += arg1;
