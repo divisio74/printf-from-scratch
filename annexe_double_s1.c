@@ -53,3 +53,26 @@ int totalf(int num, int int_part, int decint, int argp)
     }
     return total;
 }
+
+int last_put2(int f_int, int num, int argp)
+{
+    int j = 0;
+    int numtemp;
+
+    if ((int)num == 0) {
+        numtemp = num;
+        while ((int)numtemp < 1) {
+            numtemp = numtemp * 10;
+            j++;
+        }
+        f_int = (int)numtemp;
+        my_put_nbr(f_int);
+        my_putchar('.');
+        numtemp = numtemp - f_int;
+        numtemp = numtemp * mcpr(10, argp);
+        my_put_nbr((int)numtemp);
+        my_putchar('e');
+        my_putchar('-');
+        my_put_nbr(j);
+    }
+}
