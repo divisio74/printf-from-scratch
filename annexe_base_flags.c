@@ -26,4 +26,6 @@ int boucle_printf_baseflags(va_list list_args, int i, const char *format)
     }
     my_put_u(list_args, i, format);
     my_put_o(list_args, i, format);
+    my_put_x(list_args, i, format);
+    my_put_uppercase_x(list_args, i, format);
 }
