@@ -16,6 +16,7 @@ SRC		=		print_double1.c \
 				my_flag_o.c\
 				annexecountscience.c\
 				annexe_double_s1.c\
+				annexe_base_flags.c\
 
 
 

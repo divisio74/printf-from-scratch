@@ -44,5 +44,6 @@ int first_intf(int nbr);
 int count_int(int nbr);
 int my_u(int nb);
 int my_put_u(va_list list_args, int i, const char *format);
+int boucle_printf_baseflags(va_list list_args, int i, const char *format);
 
 #endif

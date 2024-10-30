@@ -36,21 +36,9 @@ int boucle_error_flags(va_list list_args, int i, const char *format)
 
 int boucle_printf_flags(va_list list_args, int i, const char *format)
 {
-    int countarg = 1;
+    int countarg = 0;
 
-    if (format[i + 1] == 's') {
-        my_putstr(va_arg(list_args, const char *));
-    }
-    if (format[i + 1] == 'd' || format[i + 1] == 'i') {
-        my_put_nbr(va_arg(list_args, int));
-    }
-    if (format[i + 1] == 'c') {
-        my_putchar(va_arg(list_args, int));
-    }
-    if (format[i + 1] == '%') {
-        my_putchar(format[i]);
-    }
-    my_put_u(list_args, i, format);
+    boucle_printf_baseflags(list_args, i, format);
     countarg += print_double1(list_args, i, format);
     countarg += print_doublep_s1(list_args, i, format);
     return countarg;
@@ -63,7 +51,7 @@ int boucle_printf(va_list list_args, int i, const char *format)
     for (i; i < my_strlen(format); i++) {
         if (format[i] == '%') {
             countarg += boucle_printf_flags(list_args, i, format);
-            i += countarg;
+            i = i + countarg + 1;
         } else
             my_putchar(format[i]);
     }
@@ -85,6 +73,5 @@ int my_printf(const char *format, ...)
     if (error == 0)
         boucle_printf(list_args, i, format);
     va_end(list_args);
-    printf("c : %i", c);
     return c;
 }
