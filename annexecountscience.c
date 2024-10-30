@@ -14,7 +14,7 @@ int count_last_put(int f_int, int num, int total, int intp)
 {
     int dfirst_int;
     int rdfirst_int;
-    int c;
+    int c = 0;
 
     dfirst_int = dfirst_intf(num);
     rdfirst_int = dfirst_int % 10;
@@ -26,10 +26,9 @@ int count_last_put(int f_int, int num, int total, int intp)
     c += my_count_nbr(total);
     c = c + 2;
     if (count_int(intp) > 1)
-        my_put_nbr(count_int(intp) - 1);
+        c += my_count_nbr(count_int(intp) - 1);
     else {
-        my_put_nbr(0);
-        my_put_nbr(0);
+        c = c + 2;
     }
     return c;
 }
@@ -61,32 +60,32 @@ int my_count_doublep_s(double num, int argp)
     int decint = 0;
     int f_int = 0;
     int total = 0;
+    int c = 0;
 
     if ((int)num > 0) {
-        intp = (int)num;
-        dec_part = num - intp;
-        dec_part = dec_part * mcpr(10, argp);
-        decint = (int)dec_part;
-        total = count_totalf(num, intp, decint, argp);
-        f_int = first_intf((int)num);
-        count_last_put(f_int, num, total, intp);
+        c += 4;
+        c += argp;
+        if (count_int((int)num) == 1)
+            c = c + 2;
+        else
+            c += my_count_nbr(count_int((int)num));
     }
+    return c;
 }
 
 int count_doublep_s1(va_list list_args, int i, const char *format)
 {
-    char c;
+    char argc;
     int argp;
-    int countarg = 0;
+    int c = 0;
 
     if (format[i + 3] == 'e' && format[i + 1] == '.') {
-        c = format[i + 2];
-        argp = c - '0';
-        my_count_doublep_s(va_arg(list_args, double), argp);
-        countarg += 2;
+        argc = format[i + 2];
+        argp = argc - '0';
+        c += my_count_doublep_s(va_arg(list_args, double), argp);
     }
     if (format[i + 1] == 'e') {
-        my_count_doublep_s(va_arg(list_args, double), 6);
+        c += my_count_doublep_s(va_arg(list_args, double), 6);
     }
-    return countarg;
+    return c;
 }

@@ -51,7 +51,7 @@ int boucle_printf_flags(va_list list_args, int i, const char *format)
         my_putchar(format[i]);
     }
     my_put_u(list_args, i, format);
-    countarg = print_double1(list_args, i, format);
+    countarg += print_double1(list_args, i, format);
     countarg += print_doublep_s1(list_args, i, format);
     return countarg;
 }
@@ -63,7 +63,7 @@ int boucle_printf(va_list list_args, int i, const char *format)
     for (i; i < my_strlen(format); i++) {
         if (format[i] == '%') {
             countarg += boucle_printf_flags(list_args, i, format);
-            i += countarg + 1;
+            i += countarg;
         } else
             my_putchar(format[i]);
     }
@@ -84,9 +84,7 @@ int my_printf(const char *format, ...)
     va_start(list_args, format);
     if (error == 0)
         boucle_printf(list_args, i, format);
-    if (error > 0)
-        write(2, "84\n", 3);
-        c = 0 - c;
     va_end(list_args);
+    printf("c : %i", c);
     return c;
 }

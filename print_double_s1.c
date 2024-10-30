@@ -53,6 +53,8 @@ int my_put_doublep_s(double num, int argp)
     int decint = 0;
     int f_int = 0;
     int total = 0;
+    double numtemp = 0;
+    int j = 0;
 
     if ((int)num > 0) {
         intp = (int)num;
@@ -62,6 +64,22 @@ int my_put_doublep_s(double num, int argp)
         total = totalf(num, intp, decint, argp);
         f_int = first_intf((int)num);
         last_put(f_int, num, total, intp);
+    }
+    if ((int)num == 0) {
+        numtemp = num;
+        while ((int)numtemp < 1) {
+            numtemp = numtemp * 10;
+            j++;
+        }
+        f_int = (int)numtemp;
+        my_put_nbr(f_int);
+        my_putchar('.');
+        numtemp = numtemp - f_int;
+        numtemp = numtemp * mcpr(10, argp);
+        my_put_nbr((int)numtemp);
+        my_putchar('e');
+        my_putchar('-');
+        my_put_nbr(j);
     }
 }
 

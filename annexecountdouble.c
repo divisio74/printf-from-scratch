@@ -14,8 +14,9 @@ int my_count_doublep(double num, int arg1)
     int c = 0;
     int int_part = (int)num;
     double dec_part = num - int_part;
-    int decint_part = (int)dec_part;
+    int decint_part;
 
+    decint_part = (int)dec_part;
     dec_part = dec_part * mcpr(10, arg1);
     c += my_count_nbr(int_part);
     c++;
