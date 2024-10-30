@@ -5,6 +5,8 @@
 ** annexe
 */
 #include "my_printf.h"
+#include <stdarg.h>
+#include <stdio.h>
 #include <unistd.h>
 
 int my_putchar(char c)
@@ -46,4 +48,24 @@ int my_putstr(char const *str)
         my_putchar(str[i]);
     }
     return i;
+}
+
+int print_double_format(va_list list_args, int i, const char *format)
+{
+    int etoile = 0;
+    char c = 0;
+    int argp = 0;
+    int countarg = 0;
+
+    if (format[i + 3] == 'f' && format[i + 1] == '.') {
+        c = format[i + 2];
+        if (c == '*') {
+            etoile = va_arg(list_args, int);
+            argp = etoile;
+        } else
+            argp = c - '0';
+        my_put_doublep(va_arg(list_args, double), argp);
+        countarg += 2;
+    }
+    return countarg;
 }

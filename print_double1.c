@@ -74,16 +74,12 @@ int my_put_doublep(double num, int argp)
 
 int print_double1(va_list list_args, int i, const char *format)
 {
+    int etoile = 0;
     char c = 0;
     int argp = 0;
     int countarg = 0;
 
-    if (format[i + 3] == 'f' && format[i + 1] == '.') {
-        c = format[i + 2];
-        argp = c - '0';
-        my_put_doublep(va_arg(list_args, double), argp);
-        countarg += 2;
-    }
+    countarg = print_double_format(list_args, i, format);
     if (format[i + 1] == 'f') {
         my_put_doublep(va_arg(list_args, double), 6);
     }
