@@ -17,8 +17,8 @@ SRC		=		print_double1.c \
 				annexecountscience.c\
 				annexe_double_s1.c\
 				annexe_base_flags.c\
-
-
+				my_flag_uppercase_x.c\
+				my_x.c\
 
 OBJ 	=		$(SRC:.c=.o)
 
