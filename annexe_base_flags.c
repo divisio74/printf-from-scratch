@@ -25,4 +25,5 @@ int boucle_printf_baseflags(va_list list_args, int i, const char *format)
         my_putchar(format[i]);
     }
     my_put_u(list_args, i, format);
+    my_put_o(list_args, i, format);
 }

@@ -48,7 +48,12 @@ int my_o(unsigned int nb)
     i++;
     tab[i] = nb + '0';
     my_revstr(tab, size);
-    my_putchar('\n');
-    printf("%o\n", -10);
     return count;
+}
+
+int my_put_o(va_list list_args, int i, const char *format)
+{
+    if (format[i + 1] == 'o') {
+        my_o(va_arg(list_args, unsigned int));
+    }
 }
