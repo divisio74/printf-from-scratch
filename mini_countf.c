@@ -27,8 +27,7 @@ int boucle_countf(va_list list_args, int i, const char *format)
         c++;
     }
     c += count_double1(list_args, i, format);
-    if (count_double1 > 0)
-        i += 3;
+    c += count_doublep_s1(list_args, i, format);
     return c;
 }
 
