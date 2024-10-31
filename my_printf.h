@@ -55,5 +55,9 @@ int my_put_uppercase_x(va_list list_args, int i, const char *format);
 int last_put2(int f_int, int num, int argp);
 int print_pointer(void *ptr);
 int print_pointer_call(va_list list_args, int i, const char *format);
+int my_count_o(va_list list_args, int i, const char *format);
+int my_tab_size(unsigned int nb);
+int print_double1F(va_list list_args, int i, const char *format);
+int print_double_formatF(va_list list_args, int i, const char *format);
 
 #endif

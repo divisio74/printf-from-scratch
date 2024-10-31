@@ -26,6 +26,7 @@ int boucle_countf(va_list list_args, int i, const char *format)
     if (format[i + 1] == '%') {
         c++;
     }
+    c += my_count_o(list_args, i, format);
     c += count_double1(list_args, i, format);
     c += count_doublep_s1(list_args, i, format);
     return c;

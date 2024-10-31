@@ -29,3 +29,13 @@ int my_countstr(char const *str)
     }
     return i;
 }
+
+int my_count_o(va_list list_args, int i, const char *format)
+{
+    int c = 0;
+
+    if (format[i + 1] == 'o') {
+        c += my_tab_size(va_arg(list_args, unsigned int));
+    }
+    return c;
+}
