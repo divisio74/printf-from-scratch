@@ -57,7 +57,7 @@ int print_pointer(void *ptr);
 int print_pointer_call(va_list list_args, int i, const char *format);
 int my_count_o(va_list list_args, int i, const char *format);
 int my_tab_size(unsigned int nb);
-int print_double1F(va_list list_args, int i, const char *format);
-int print_double_formatF(va_list list_args, int i, const char *format);
+int print_double1maj(va_list list_args, int i, const char *format);
+int print_double_formatmaj(va_list list_args, int i, const char *format);
 
 #endif

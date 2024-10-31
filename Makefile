@@ -20,7 +20,7 @@ SRC		=		print_double1.c \
 				my_flag_uppercase_x.c\
 				my_x.c\
 				my_p.c\
-				my_F.c\
+				my_fmaj.c\
 
 OBJ 	=		$(SRC:.c=.o)
 
