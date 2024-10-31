@@ -24,7 +24,7 @@ int my_tab_size(unsigned int nb)
 
 char *my_revstr(char *str, int size)
 {
-    for (int i = size; i != -1; i--) {
+    for (int i = size - 1; i != -1; i--) {
         my_putchar(str[i]);
     }
 }
