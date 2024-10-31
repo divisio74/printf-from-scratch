@@ -12,8 +12,10 @@
 
 int print_pointer_put(int x, unsigned long address, char buffer[20])
 {
+    int j = 0;
+
     x += sizeof(address) * 2 - 4;
-    for (int j = 0; j < x; j++) {
+    for (j; j < x; j++) {
         my_putchar(buffer[j]);
     }
 }
