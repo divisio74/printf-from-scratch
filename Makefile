@@ -19,6 +19,7 @@ SRC		=		print_double1.c \
 				annexe_base_flags.c\
 				my_flag_uppercase_x.c\
 				my_x.c\
+				my_p.c\
 
 OBJ 	=		$(SRC:.c=.o)
 

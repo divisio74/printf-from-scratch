@@ -53,5 +53,7 @@ char *my_revstr(char *str, int size);
 int my_flag_uppercase_x(unsigned int nb);
 int my_put_uppercase_x(va_list list_args, int i, const char *format);
 int last_put2(int f_int, int num, int argp);
+int print_pointer(void *ptr);
+int print_pointer_call(va_list list_args, int i, const char *format);
 
 #endif
