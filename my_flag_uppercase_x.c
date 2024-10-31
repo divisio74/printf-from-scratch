@@ -23,36 +23,23 @@ int my_tab_size_uppercase_x(unsigned int nb)
     return size;
 }
 
-int my_uppercase_hexa_letter(unsigned int remainder)
-{
-    int letter_x;
-
-    if (remainder >= 10) {
-        letter_x = remainder + 55;
-        return letter_x;
-    } else {
-        return remainder + '0';
-    }
-}
-
 int my_flag_uppercase_x(unsigned int nb)
 {
-    int remainder_x;
-    int count;
-    char *tab;
+    int remainder = 0;
+    char alpha[] = "0123456789ABCDEF";
+    int count = 0;
     int i = 0;
+    char *tab;
     int size = my_tab_size_uppercase_x(nb);
 
     tab = malloc(my_tab_size_uppercase_x(nb) * sizeof(char));
-    while (nb >= 16) {
-        remainder_x = nb % 16;
+    while (nb != 0) {
+        remainder = nb % 16;
         nb = nb / 16;
-        tab[i] = my_uppercase_hexa_letter(remainder_x);
+        tab[i] = alpha[remainder];
         i++;
+        count++;
     }
-    remainder_x = nb;
-    i++;
-    tab[i] = my_uppercase_hexa_letter(remainder_x);
     my_revstr(tab, size);
     return count;
 }
