@@ -74,6 +74,5 @@ int my_printf(const char *format, ...)
     if (error == 0)
         boucle_printf(list_args, i, format);
     va_end(list_args);
-    printf("\nc : %i", c);
     return c;
 }
