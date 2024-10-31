@@ -33,12 +33,23 @@ int boucle_countf(va_list list_args, int i, const char *format)
 
 int mini_countf(const char *format, va_list list_args, int i, int c)
 {
+    int end = 0;
+    int x = 0;
+
     for (i; i < my_strlen(format); i++) {
-        if (format[i] == '%') {
+        if (format[i] == '%')
+            x++;
+        if (format[i + 1] != 'n' && end == 0 && x > 0) {
             c += boucle_countf(list_args, i, format);
             i++;
-        } else
+        }
+        if (format[i + 1] == 'n' && x > 0)
+            end++;
+        if (x == 0 && end == 0)
             c++;
+        if (x == 0 && end != 0)
+            end++;
+        x = 0;
     }
     va_end(list_args);
     return c;
