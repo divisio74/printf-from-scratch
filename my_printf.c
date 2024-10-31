@@ -40,7 +40,7 @@ int boucle_printf_flags(va_list list_args, int i, const char *format)
 
     boucle_printf_baseflags(list_args, i, format);
     print_pointer_call(list_args, i, format);
-    countarg += print_double1F(list_args, i, format);
+    countarg += print_double1maj(list_args, i, format);
     countarg += print_double1(list_args, i, format);
     countarg += print_doublep_s1(list_args, i, format);
     return countarg;
