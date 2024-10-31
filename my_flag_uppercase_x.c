@@ -31,6 +31,7 @@ int my_flag_uppercase_x(unsigned int nb)
     int i = 0;
     char *tab;
     int size = my_tab_size_uppercase_x(nb);
+    int argp = 0;
 
     tab = malloc(my_tab_size_uppercase_x(nb) * sizeof(char));
     while (nb != 0) {
@@ -40,7 +41,7 @@ int my_flag_uppercase_x(unsigned int nb)
         i++;
         count++;
     }
-    my_revstr(tab, size);
+    my_revstr(tab, size, argp);
     return count;
 }
 

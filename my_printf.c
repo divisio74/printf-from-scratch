@@ -38,7 +38,7 @@ int boucle_printf_flags(va_list list_args, int i, const char *format)
 {
     int countarg = 0;
 
-    boucle_printf_baseflags(list_args, i, format);
+    countarg += boucle_printf_baseflags(list_args, i, format);
     print_pointer_call(list_args, i, format);
     countarg += print_double1maj(list_args, i, format);
     countarg += print_double1(list_args, i, format);

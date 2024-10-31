@@ -22,14 +22,21 @@ int my_tab_size(unsigned int nb)
     return size;
 }
 
-char *my_revstr(char *str, int size)
+char *my_revstr(char *str, int size, int argp)
 {
-    for (int i = size - 1; i != -1; i--) {
-        my_putchar(str[i]);
+    if (argp > 0) {
+        for (int i = size - 1; i != - 1 && argp > 0; i--) {
+            my_putchar(str[i]);
+            argp--;
+        }
+    } else {
+        for (int i = size - 1; i != -1; i--) {
+            my_putchar(str[i]);
+        }
     }
 }
 
-int my_o(unsigned int nb)
+int my_o(unsigned int nb, int argp)
 {
     int remainder_o = 0;
     int count = 0;
@@ -47,13 +54,42 @@ int my_o(unsigned int nb)
     }
     i++;
     tab[i] = nb + '0';
-    my_revstr(tab, size);
+    my_revstr(tab, size, argp);
     return count;
+}
+
+int my_put_o_boucle(va_list list_args, int i, const char *format, int argp)
+{
+    int etoile = 0;
+    int countarg = 0;
+    char c = 0;
+
+    if (format[i + 3] == 'o' && format[i + 1] == '.') {
+        c = format[i + 2];
+        if (c == '*') {
+            etoile = va_arg(list_args, int);
+            argp = etoile;
+        } else
+            argp = c - '0';
+        my_o(va_arg(list_args, unsigned int), argp);
+        countarg += 2;
+    }
+    return countarg;
 }
 
 int my_put_o(va_list list_args, int i, const char *format)
 {
+    int argp = 0;
+    int countarg = 0;
+
     if (format[i + 1] == 'o') {
-        my_o(va_arg(list_args, unsigned int));
+        my_o(va_arg(list_args, unsigned int), argp);
     }
+    if (format[i + 2] == 'o' && format[i + 1] == '#') {
+        my_put_nbr(0);
+        my_o(va_arg(list_args, unsigned int), argp);
+        countarg++;
+    }
+    countarg += my_put_o_boucle(list_args, i, format, argp);
+    return countarg;
 }
