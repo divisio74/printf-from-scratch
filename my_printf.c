@@ -54,8 +54,10 @@ int boucle_printf(va_list list_args, int i, const char *format)
         if (format[i] == '%') {
             countarg += boucle_printf_flags(list_args, i, format);
             i = i + countarg + 1;
+            countarg = 0;
         } else
             my_putchar(format[i]);
+            countarg = 0;
     }
 }
 
@@ -66,11 +68,6 @@ int my_printf(const char *format, ...)
     int error = 0;
     int c = 0;
 
-    va_start(list_args, format);
-    va_end(list_args);
-    va_start(list_args, format);
-    c += mini_countf(format, list_args, i, c);
-    va_end(list_args);
     va_start(list_args, format);
     if (error == 0)
         boucle_printf(list_args, i, format);

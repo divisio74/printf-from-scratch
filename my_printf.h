@@ -14,8 +14,10 @@
 
 int my_putchar(char c);
 int my_put_nbr(int nb);
+int my_put_nbrp(int nb, int argp);
 int my_strlen(const char *str);
-int my_putstr(const char *str);
+int my_putstr(const char *str, int argp);
+int my_put_str_boucle(va_list list_args, int i, const char *format);
 int my_printf(const char *format, ...);
 int my_count_nbr(int nb);
 int my_countstr(char const *str);
@@ -50,10 +52,15 @@ int boucle_printf_baseflags(va_list list_args, int i, const char *format);
 int my_put_o(va_list list_args, int i, const char *format);
 int my_put_o_boucle(va_list list_args, int i, const char *format, int argp);
 int my_o(unsigned int nb, int argp);
+int my_annexe_o(int size, int argp);
 int my_put_x(va_list list_args, int i, const char *format);
+int my_put_x_boucle(va_list list_args, int i, const char *format);
+int my_x(unsigned int nb, int argp);
 char *my_revstr(char *str, int size, int argp);
-int my_flag_uppercase_x(unsigned int nb);
+int my_flag_uppercase_x(unsigned int nb, int argp);
 int my_put_uppercase_x(va_list list_args, int i, const char *format);
+int my_put_majx_boucle(va_list list_args, int i, const char *format, int argp);
+int my_put_majx(va_list list_args, int i, const char *format);
 int last_put2(int f_int, int num, int argp);
 int print_pointer(void *ptr);
 int print_pointer_call(va_list list_args, int i, const char *format);
@@ -61,5 +68,7 @@ int my_count_o(va_list list_args, int i, const char *format);
 int my_tab_size(unsigned int nb);
 int print_double1maj(va_list list_args, int i, const char *format);
 int print_double_formatmaj(va_list list_args, int i, const char *format);
+int my_put_d_boucle(va_list list_args, int i, const char *format);
+int my_put_di_boucle(va_list list_args, int i, const char *format);
 
 #endif
