@@ -23,7 +23,7 @@ int my_tab_size_uppercase_x(unsigned int nb)
     return size;
 }
 
-int my_flag_uppercase_x(unsigned int nb)
+int my_flag_uppercase_x(unsigned int nb, int argp)
 {
     int remainder = 0;
     char alpha[] = "0123456789ABCDEF";
@@ -31,7 +31,7 @@ int my_flag_uppercase_x(unsigned int nb)
     int i = 0;
     char *tab;
     int size = my_tab_size_uppercase_x(nb);
-    int argp = 0;
+    int z = 0;
 
     tab = malloc(my_tab_size_uppercase_x(nb) * sizeof(char));
     while (nb != 0) {
@@ -41,13 +41,44 @@ int my_flag_uppercase_x(unsigned int nb)
         i++;
         count++;
     }
-    my_revstr(tab, size, argp);
+    my_annexe_o(size, argp);
+    my_revstr(tab, size, 0);
     return count;
 }
 
-int my_put_uppercase_x(va_list list_args, int i, const char *format)
+int my_put_majx_boucle(va_list list_args, int i, const char *format, int argp)
 {
-    if (format[i + 1] == 'X') {
-        my_flag_uppercase_x(va_arg(list_args, unsigned int));
+    int etoile = 0;
+    int countarg = 0;
+    char c = 0;
+
+    if (format[i + 3] == 'X' && format[i + 1] == '.') {
+        c = format[i + 2];
+        if (c == '*') {
+            etoile = va_arg(list_args, int);
+            argp = etoile;
+        } else
+            argp = c - '0';
+        my_flag_uppercase_x(va_arg(list_args, unsigned int), argp);
+        countarg += 2;
     }
+    return countarg;
+}
+
+int my_put_majx(va_list list_args, int i, const char *format)
+{
+    int argp = 0;
+    int countarg = 0;
+
+    if (format[i + 1] == 'X') {
+        my_flag_uppercase_x(va_arg(list_args, unsigned int), argp);
+    }
+    if (format[i + 2] == 'X' && format[i + 1] == '#') {
+        my_put_nbr(0);
+        my_putchar('X');
+        my_flag_uppercase_x(va_arg(list_args, unsigned int), argp);
+        countarg++;
+    }
+    countarg += my_put_majx_boucle(list_args, i, format, argp);
+    return countarg;
 }

@@ -23,7 +23,7 @@ int my_tab_size_x(unsigned int nb)
     return size;
 }
 
-int my_x(unsigned int nb)
+int my_x(unsigned int nb, int argp)
 {
     int remainder_x = 0;
     char alpha[] = "0123456789abcdef";
@@ -31,7 +31,7 @@ int my_x(unsigned int nb)
     int i = 0;
     char *tab;
     int size = my_tab_size_x(nb);
-    int argp = 0;
+    int z = 0;
 
     tab = malloc(my_tab_size_x(nb) * sizeof(char));
     while (nb != 0) {
@@ -41,13 +41,44 @@ int my_x(unsigned int nb)
         i++;
         count++;
     }
-    my_revstr(tab, size, argp);
+    my_annexe_o(size, argp);
+    my_revstr(tab, size, 0);
     return count;
+}
+
+int my_put_x_boucle(va_list list_args, int i, const char *format)
+{
+    int etoile = 0;
+    int countarg = 0;
+    char c = 0;
+    int argp = 0;
+
+    if (format[i + 3] == 'x' && format[i + 1] == '.') {
+        c = format[i + 2];
+        if (c == '*') {
+            etoile = va_arg(list_args, int);
+            argp = etoile;
+        } else
+            argp = c - '0';
+        my_x(va_arg(list_args, unsigned int), argp);
+        countarg += 2;
+    }
+    return countarg;
 }
 
 int my_put_x(va_list list_args, int i, const char *format)
 {
+    int countarg = 0;
+
     if (format[i + 1] == 'x') {
-        my_x(va_arg(list_args, unsigned int));
+        my_x(va_arg(list_args, unsigned int), 0);
     }
+    if (format[i + 2] == 'x' && format[i + 1] == '#') {
+        my_put_nbr(0);
+        my_putchar('x');
+        countarg += my_x(va_arg(list_args, unsigned int), 0);
+        countarg++;
+    }
+    countarg += my_put_x_boucle(list_args, i, format);
+    return countarg;
 }

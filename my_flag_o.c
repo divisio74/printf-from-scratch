@@ -43,6 +43,7 @@ int my_o(unsigned int nb, int argp)
     int i = 0;
     char *tab;
     int size = my_tab_size(nb);
+    int z = 0;
 
     tab = malloc(my_tab_size(nb) * sizeof(char));
     while (nb != 0) {
@@ -54,7 +55,8 @@ int my_o(unsigned int nb, int argp)
     }
     i++;
     tab[i] = nb + '0';
-    my_revstr(tab, size, argp);
+    my_annexe_o(size, argp);
+    my_revstr(tab, size, 0);
     return count;
 }
 

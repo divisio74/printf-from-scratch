@@ -21,6 +21,7 @@ SRC		=		print_double1.c \
 				my_x.c\
 				my_p.c\
 				my_fmaj.c\
+				annexe_o.c\
 
 OBJ 	=		$(SRC:.c=.o)
 

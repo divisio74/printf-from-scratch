@@ -40,12 +40,21 @@ int my_strlen(char const *str)
     return i;
 }
 
-int my_putstr(char const *str)
+int my_putstr(char const *str, int argp)
 {
     int i = 0;
+    int argptemp = 0;
 
-    for (; str[i] != '\0'; i++) {
-        my_putchar(str[i]);
+    argptemp = argp;
+    if (argp > 0) {
+        for (; str[i] != '\0' && argptemp > 0; i++) {
+            my_putchar(str[i]);
+            argptemp--;
+        }
+    } else {
+        for (; str[i] != '\0'; i++) {
+            my_putchar(str[i]);
+        }
     }
     return i;
 }
